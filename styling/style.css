@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #1c1c1c;
+    color: rgb(205, 205, 205);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+.hero-section{
+    height: 60vh;
+    background: linear-gradient(130deg,
+        rgb(105, 138, 208),
+        rgb(32, 59, 142) 100%
+    );
+}
+.background-effect{
+    background: radial-gradient(
+        rgba(255,255,255,0.2) 8%,
+        transparent 8%
+    );
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    height: 100%;
+    width: 100%;
+}
+
+.skills img{
+    filter: grayscale(1);
+    opacity: 60%;
+    max-height: none;
+}
+
+.experience img{
+    width: 80%;
+    height: auto;
+
+}
+.education img{
+    width: 100%;
+    height: auto;
+}
