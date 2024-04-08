@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MATEO GRIFSHA - CV</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="../styling/style.css">
     <link rel="icon" type="image/x-icon" href="/assets/m.png">
 </head>
 <body>
+  <script src="/scripts/closeMobileMenu.js"></script>
     <header class="bg-gray-900">
         <nav class="mx-auto flex max-w-8xl items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div class="flex lg:flex-1">
@@ -19,23 +21,23 @@
           <div class="hidden lg:flex lg:gap-x-12">
             <a href="#about-me" class="text-sm font-light leading-6 text-gray-100 text-xl hover:bg-sky-200 hover:text-gray-900 hover:font-normal  p-2 rounded-md">ABOUT ME</a>
             <a href="#experience" class="text-sm font-light leading-6 text-gray-100 text-xl hover:bg-sky-200 hover:text-gray-900 hover:font-normal p-2 rounded-md">EXPERIENCE</a>
-            <a href="#" class="text-sm font-light leading-6 text-gray-100 text-xl hover:bg-sky-200 hover:text-gray-900 hover:font-normal p-2 rounded-md">EDUCATION</a>
+            <a href="#education" class="text-sm font-light leading-6 text-gray-100 text-xl hover:bg-sky-200 hover:text-gray-900 hover:font-normal p-2 rounded-md">EDUCATION</a>
           </div>
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           </div>
         </nav>
 
         <!-- Mobile menu, show/hide based on menu open state. -->
-        <div class="lg:hidden" role="dialog" aria-modal="true">
+        <div class="lg:hidden" role="dialog" aria-modal="true" id="mobile-menu">
           <!-- Background backdrop, show/hide based on slide-over state. -->
           <div class="fixed inset-0 z-10"></div>
           <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div class="flex items-center justify-between">
               <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Mateo Grifsha</span>
+                <span class="sr-only">Your Company</span>
                 <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
               </a>
-              <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+              <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" id="close-mobile-menu">
                 <span class="sr-only">Close menu</span>
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -45,9 +47,35 @@
             <div class="mt-6 flow-root">
               <div class="-my-6 divide-y divide-gray-500/10">
                 <div class="space-y-2 py-6">
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">ABOUT ME</a>
-                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">EXPERIENCE</a>
-                  <a href="#education" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">EDUCATION</a>
+                  <div class="-mx-3">
+                    <button type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" aria-controls="disclosure-1" aria-expanded="false" >
+                      Product
+                      <!--
+                        Expand/collapse icon, toggle classes based on menu open state.
+      
+                        Open: "rotate-180", Closed: ""
+                      -->
+                      <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                    <!-- 'Product' sub-menu, show/hide based on menu state. -->
+                    <div class="mt-2 space-y-2" id="disclosure-1">
+                      <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Analytics</a>
+                      <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Engagement</a>
+                      <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Security</a>
+                      <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Integrations</a>
+                      <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Automations</a>
+                      <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Watch demo</a>
+                      <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact sales</a>
+                    </div>
+                  </div>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+                </div>
+                <div class="py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
                 </div>
               </div>
             </div>
@@ -58,10 +86,10 @@
       <div class="hero-section">
         <div class="background-effect flex items-center justify-center">
             <div class="hero-info">
-                <p class="text-xl font-semibold text-blue-100 mx-auto text-center">HELLO, MY NAME IS MATEO GRIFSHA</p>
-                <p class="text-5xl font-bold text-blue-100 mx-auto mb-6">A JUNIOR SOFTWARE ENGINEER</p>
+                <p class="text-md md:text-xl font-semibold text-blue-100 mx-auto text-center">HELLO, MY NAME IS MATEO GRIFSHA</p>
+                <p class="text-3xl md:text-5xl font-bold text-blue-100 mx-auto mb-6 text-center">A JUNIOR SOFTWARE ENGINEER</p>
                 <div class="cta flex justify-center gap-x-4 ">
-                    <a href="../assets/Mateo Grifsha CV SE.pdf" download="Mateo Grifsha CV" class="bg-blue-800 text-gray-100 hover:bg-blue-700 p-3 rounded-md text-base" >Download CV</a>
+                    <a href="../assets/Mateo Grifsha CV SE.pdf" download="Mateo Grifsha CV" class="bg-blue-800 text-gray-100 hover:bg-blue-700 p-3 rounded-md text-sm md:text-base">Download CV</a>
                     <a href="#about-me" class="bg-blue-800 text-gray-100 hover:bg-blue-700 p-3 rounded-md text-base">Learn More</a>
                 </div>
             </div>
@@ -70,8 +98,8 @@
 
       <div class="about-section pb-12 pt-2" id="about-me">
         <hr class="w-2/12 h-2 my-8 mx-auto bg-gray-200 border-0 dark:bg-gray-700 rounded-lg">
-        <p class="text-4xl text-gray-300 font-bold text-center leading-8">ABOUT ME</p>
-        <div class="w-5/12 text-center mx-auto my-3 text-lg">
+        <p class="text-2xl md:text-4xl text-gray-300 font-bold text-center leading-8">ABOUT ME</p>
+        <div class="2xl:w-5/12 text-center mx-auto my-3 text-md md:text-lg w-10/12">
             <p>As a junior software engineer, I focus on expanding my knowledge in different branches of the industry. I collaborate with teams, ensuring the seamless integration of features and improvements. My commitment to staying updated with industry trends allow me to deliver high-quality solutions. I am enthusiastic about further developing my skills and contributing to innovative projects.</p>
         </div>
       </div>
@@ -79,7 +107,7 @@
       <div class="skills">
         <div class="bg-white py-24 sm:py-16">
             <div class="mx-auto max-w-5xl px-6 lg:px-8">
-              <h2 class="text-center text-4xl font-bold leading-8 text-gray-900">SKILLS</h2>
+              <h2 class="text-center text-2xl md:text-4xl font-bold leading-8 text-gray-900">SKILLS</h2>
               <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-6">
                 <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="../assets/html.png" alt="HTML" draggable="false">
                 <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="../assets/react.png" alt="react" draggable="false">
@@ -93,11 +121,11 @@
       </div>
       
 
-      <div class="experience pt-12" id="experience">  
-        <h2 class="text-center text-4xl font-bold leading-8 text-gray-100 pb-12">EXPERIENCE.</h2>
-        <div class="duogrid grid grid-cols-2">
+      <div class="experience pt-12 pb-6" id="experience">  
+        <h2 class="text-center text-2xl md:text-4xl font-bold leading-8 text-gray-100 pb-12">EXPERIENCE.</h2>
+        <div class="duogrid md:grid md:grid-cols-2">
             <div>
-                <ol class="relative border-s border-gray-200 dark:border-gray-700 w-9/12 ms-24">                  
+                <ol class="relative border-s border-gray-200 dark:border-gray-700 w-9/12 ms-12 md:w-full">                  
                     <li class="mb-10 ms-4">
                         <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                         <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">June 2020 - August 2020</time>
@@ -136,19 +164,19 @@
         
                 </ol>
             </div> 
-            <div class="flex justify-center items-center">
+            <div class="flex justify-center items-center hidden lg:block">
                 <img src="../assets/experience-img.jpg" class="rounded-md">
             </div>
         </div>
       </div>
 
-      <div class="education bg-white " id="education">
-        <h2 class="text-center text-4xl font-semibold text-gray-900 pt-6 mb-6">EDUCATION & CERTIFICATIONS</h2>
-        <div class="cards grid grid-cols-3 place-items-center">
+      <div class="education bg-white p-8 lg:p-0" id="education">
+        <h2 class="text-center text-2xl md:text-4xl font-semibold text-gray-900 pt-6 mb-6">EDUCATION & CERTIFICATIONS</h2>
+        <div class="cards grid grid-cols-1 gap-y-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 place-items-center text-center">
             <div class="w-full h-80 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex flex-col items-center pb-10">
                     <img class="w-24 h-24 mb-3 shadow-lg" src="/assets/google.png"/>
-                    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Google Digital Garage</h5>
+                    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white ">Google Digital Garage</h5>
                     <span class="text-sm text-gray-500 dark:text-gray-400">Fundamentals of Search Engine Optimization</span>
                 </div>
             </div>
@@ -162,15 +190,15 @@
             <div class="w-full h-80 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                 <div class="flex flex-col items-center p-10">
                     <img class="w-24 h-24 mb-3 shadow-lg" src="/assets/cit.png"/>
-                    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Canadian Institute of Technology</h5>
+                    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white text-center">Canadian Institute of Technology</h5>
                     <span class="text-sm text-gray-500 dark:text-gray-400">Introduction to Python Programming</span>
                 </div>
             </div>
         </div>
-      <div>
+      </div>
 
 
-        <div class="footer mt-10">
+        <div class="footer">
             <footer class="bg-white dark:bg-gray-900">
                 <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                     <div class="md:flex md:justify-center">
